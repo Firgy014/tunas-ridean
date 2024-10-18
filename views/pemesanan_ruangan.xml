@@ -1,0 +1,53 @@
+<odoo>
+
+    <data>
+
+        <record id="view_tree_pemesanan_ruangan" model="ir.ui.view">
+            <field name="name">Pemesanan Ruangan List Tree</field>
+            <field name="model">tunas.pemesanan.ruangan</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="nomor_pemesanan"/>
+                    <field name="ruangan_id"/>
+                    <field name="nama_pemesan"/>
+                    <field name="tanggal_pemesanan"/>
+                    <field name="state"/>
+                    <field name="catatan"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_form_pemesanan_ruangan" model="ir.ui.view">
+            <field name="name">Pemesanan Ruangan Form</field>
+            <field name="model">tunas.pemesanan.ruangan</field>
+            <field name="arch" type="xml">
+                <form string="Pemesanan Ruangan">
+                    <header>
+                        <button name="action_proses" type="object" string="Proses" class="oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                        <button name="action_done" type="object" string="Selesai" class="oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'on_going')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,on_going,done"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="nomor_pemesanan" readonly="1"/>
+                            <field name="ruangan_id"/>
+                            <field name="nama_pemesan"/>
+                            <field name="tanggal_pemesanan"/>
+                            <field name="catatan"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pemesanan_ruangan_action" model="ir.actions.act_window">
+            <field name="name">Pemesanan Ruangan</field>
+            <field name="res_model">tunas.pemesanan.ruangan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+
+</odoo>

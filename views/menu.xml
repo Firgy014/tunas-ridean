@@ -1,0 +1,21 @@
+<odoo>
+
+    <data>
+
+        <menuitem id="transaksi_ruangan_menu_root" name="Transaksi Ruangan"/>
+
+        <menuitem id="menu_master_ruangan_data" 
+            name="Master Ruangan" 
+            parent="transaksi_ruangan_menu_root"
+            action="master_ruangan_action"
+            sequence="1"/>
+
+        <menuitem id="menu_pemesanan_ruangan_data" 
+            name="Pemesanan Ruangan" 
+            parent="transaksi_ruangan_menu_root"
+            action="pemesanan_ruangan_action"
+            sequence="2"/>
+
+    </data>
+
+</odoo>
